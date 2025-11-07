@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,11 +16,25 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
+  const handleCotizarClick = () => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname === "/") {
+      // Si estamos en home, hacer scroll a contacto
+      setTimeout(() => {
+        const element = document.getElementById("contact");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      // Si estamos en otra página, navegar a home y luego scroll
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById("contact");
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 300);
     }
   };
 
@@ -43,27 +59,15 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
-            <NavLink onClick={() => scrollToSection("hero")}>Inicio</NavLink>
-            <NavLink onClick={() => scrollToSection("intro")}>
-              Nosotros
-            </NavLink>
-            <NavLink onClick={() => scrollToSection("services")}>
-              Servicios
-            </NavLink>
-            <NavLink onClick={() => scrollToSection("solutions")}>
-              Soluciones
-            </NavLink>
-            <NavLink onClick={() => scrollToSection("faq")}>FAQ</NavLink>
-            <NavLink onClick={() => scrollToSection("contact")}>
-              Contacto
-            </NavLink>
+            <NavLink to="/">Inicio</NavLink>
+            <NavLink to="/about">Nosotros</NavLink>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
             <button
-              onClick={() => scrollToSection("contact")}
-              className="px-6 py-3 rounded-2xl font-medium text-white bg-gray-900 shadow-md hover:bg-gray-800 active:scale-[0.99] transition-all duration-300"
+              onClick={handleCotizarClick}
+              className="px-6 py-3 rounded-2xl font-medium text-white bg-gray-900 shadow-md hover:bg-gray-800 active:scale-[0.99] transition-all duration-300 cursor-pointer"
             >
               Cotizar Ahora
             </button>
@@ -107,26 +111,14 @@ export default function Navbar() {
         }`}
       >
         <div className="px-4 pt-2 pb-4 space-y-2 bg-white/10 backdrop-blur-xl border-t border-white/20">
-          <MobileNavLink onClick={() => scrollToSection("hero")}>
+          <MobileNavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
             Inicio
           </MobileNavLink>
-          <MobileNavLink onClick={() => scrollToSection("intro")}>
+          <MobileNavLink to="/about" onClick={() => setIsMobileMenuOpen(false)}>
             Nosotros
           </MobileNavLink>
-          <MobileNavLink onClick={() => scrollToSection("services")}>
-            Servicios
-          </MobileNavLink>
-          <MobileNavLink onClick={() => scrollToSection("solutions")}>
-            Soluciones
-          </MobileNavLink>
-          <MobileNavLink onClick={() => scrollToSection("faq")}>
-            FAQ
-          </MobileNavLink>
-          <MobileNavLink onClick={() => scrollToSection("contact")}>
-            Contacto
-          </MobileNavLink>
           <button
-            onClick={() => scrollToSection("contact")}
+            onClick={handleCotizarClick}
             className="w-full mt-3 bg-gray-900 text-white shadow-md hover:bg-gray-800 active:scale-[0.99] font-medium py-3 px-4 rounded-2xl transition-all"
           >
             Cotizar Ahora
@@ -140,37 +132,40 @@ export default function Navbar() {
 // Desktop Nav Link Component
 function NavLink({
   children,
-  onClick,
+  to,
 }: {
   children: React.ReactNode;
-  onClick: () => void;
+  to: string;
 }) {
   return (
-    <button
-      onClick={onClick}
+    <Link
+      to={to}
       className="relative px-4 py-2 text-white/90 font-medium rounded-lg overflow-hidden group transition-all duration-300 hover:text-white"
     >
       <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
       <span className="relative">{children}</span>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-white/60 group-hover:w-3/4 transition-all duration-300"></div>
-    </button>
+    </Link>
   );
 }
 
 // Mobile Nav Link Component
 function MobileNavLink({
   children,
+  to,
   onClick,
 }: {
   children: React.ReactNode;
+  to: string;
   onClick: () => void;
 }) {
   return (
-    <button
+    <Link
+      to={to}
       onClick={onClick}
-      className="w-full text-left px-4 py-3 text-white/90 font-medium rounded-lg hover:bg-white/10 hover:text-white transition-all"
+      className="block w-full text-left px-4 py-3 text-white/90 font-medium rounded-lg hover:bg-white/10 hover:text-white transition-all"
     >
       {children}
-    </button>
+    </Link>
   );
 }

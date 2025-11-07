@@ -10,48 +10,48 @@ const services = [
   {
     title: "Mangueras hidráulicas",
     description:
-      "Ofrecemos mangueras hidráulicas diseñadas para soportar las condiciones más exigentes, garantizando durabilidad y un rendimiento óptimo en sistemas de alta presión.",
+      "Mangueras diseñadas para soportar condiciones exigentes, garantizando durabilidad y rendimiento óptimo en sistemas de alta presión.",
     route: "/productos/mangueras-hidraulicas",
     image: "/home-imgs/solutions/solutions1.webp",
   },
   {
     title: "Conectores, coples y adaptadores",
     description:
-      "Contamos con una amplia gama de conectores, coples y adaptadores fabricados con la más alta precisión, asegurando un ajuste perfecto y la máxima seguridad en todas sus aplicaciones.",
+      "Amplia gama de conectores y adaptadores fabricados con alta precisión, asegurando ajuste perfecto y máxima seguridad en sus aplicaciones.",
     route: "/productos/conectores-coples-adaptadores",
     image: "/home-imgs/solutions/solutions2.webp",
   },
   {
     title: "Pistones hidráulicos",
     description:
-      "Proporcionamos pistones hidráulicos de alta calidad diseñados para aplicaciones industriales exigentes, ofreciendo precisión, resistencia y confiabilidad en cada operación.",
+      "Pistones de alta calidad para aplicaciones industriales exigentes, ofreciendo precisión, resistencia y confiabilidad en cada operación.",
     route: "/productos/pistones-hidraulicos",
     image: "/home-imgs/solutions/solutions3.webp",
   },
   {
     title: "Cilindros neumáticos",
     description:
-      "Ofrecemos cilindros neumáticos de alto rendimiento para aplicaciones industriales, garantizando eficiencia energética, durabilidad y precisión en sistemas de automatización.",
+      "Cilindros de alto rendimiento para aplicaciones industriales, garantizando eficiencia energética, durabilidad y precisión en automatización.",
     route: "/productos/cilindros-neumaticos",
     image: "/home-imgs/solutions/solutions4.webp",
   },
   {
     title: "Automatización neumática",
     description:
-      "Implementamos soluciones completas de automatización neumática para optimizar sus procesos industriales, mejorando la eficiencia operativa y reduciendo tiempos de producción.",
+      "Soluciones completas de automatización neumática para optimizar procesos industriales, mejorando eficiencia operativa y reduciendo tiempos.",
     route: "/servicios/automatizacion-neumatica",
     image: "/home-imgs/solutions/solutions5.webp",
   },
   {
     title: "Válvulas y electroválvulas",
     description:
-      "Proveemos válvulas y electroválvulas de precisión para el control eficiente de fluidos en sistemas hidráulicos y neumáticos, asegurando máxima confiabilidad y control.",
+      "Válvulas y electroválvulas de precisión para control eficiente de fluidos en sistemas hidráulicos y neumáticos con máxima confiabilidad.",
     route: "/productos/valvulas-electrovalvulas",
     image: "/home-imgs/solutions/solutions6.webp",
   },
 ];
 
-// ===== Hook: Animación on-scroll (IntersectionObserver) =====
+// ===== Hook: Animación on-scroll (IntersectionObserver optimizado) =====
 const useScrollAnimation = () => {
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
@@ -61,7 +61,7 @@ const useScrollAnimation = () => {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.12 }
+      { threshold: 0.15, rootMargin: "0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -70,24 +70,24 @@ const useScrollAnimation = () => {
   return [ref, inView] as const;
 };
 
-// ===== Header con reveal =====
+// ===== Header con reveal optimizado =====
 const AnimatedHeader: React.FC = () => {
-  const [hRef, hIn] = useScrollAnimation();
-  const [pRef, pIn] = useScrollAnimation();
+  const [containerRef, inView] = useScrollAnimation();
   return (
-    <div className="text-center max-w-3xl mx-auto mb-16">
+    <div 
+      ref={containerRef}
+      className="text-center max-w-3xl mx-auto mb-16"
+    >
       <h2
-        ref={hRef}
         className={`text-4xl md:text-5xl font-bold transition-all duration-700 ease-out text-white ${
-          hIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         Productos y Servicios
       </h2>
       <p
-        ref={pRef}
         className={`text-lg text-white/90 mt-4 transition-all duration-700 ease-out delay-150 ${
-          pIn ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         Soluciones hidráulicas confiables para procesos críticos.
@@ -122,22 +122,23 @@ export default function SolutionsCards() {
   return (
     <section id="solutions" className="relative font-sans">
       <div className="px-[5%]">
-        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
-          <div className="py-24 md:py-48 flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center max-w-6xl mx-auto">
+          <div className="py-16 md:py-32 lg:py-48 flex flex-col items-center w-full">
             <AnimatedHeader />
 
-            {/* Stack sticky con imágenes */}
-            <div className="w-full">
+            {/* Stack sticky con imágenes - optimizado para evitar stutter */}
+            <div className="w-full space-y-8 md:space-y-12">
               {services.map((svc, idx) => {
                 const isEven = idx % 2 === 0;
                 
                 // Componente de imagen reutilizable
                 const ImageContainer = () => (
-                  <div className="relative h-64 md:h-auto overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800">
+                  <div className="relative w-full h-full overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800">
                     <img
                       src={svc.image}
                       alt={svc.title}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                     {/* Overlay oscuro */}
                     <div className="absolute inset-0 bg-black/10" />
@@ -149,27 +150,28 @@ export default function SolutionsCards() {
                   <div
                     key={idx}
                     className={
-                      "sticky top-[18%] mb-16 rounded-3xl overflow-hidden " +
+                      "sticky top-[25%] mb-8 rounded-2xl md:rounded-3xl overflow-hidden " +
                       "bg-gradient-to-br from-white/30 via-white/40 to-white/30 backdrop-blur-xl " +
                       "border border-white/20 shadow-2xl shadow-black/10 " +
+                      "will-change-transform " +
                       "grid grid-cols-1 md:grid-cols-2 gap-0 " +
-                      "min-h-[480px] md:min-h-[420px]"
+                      "h-[600px] sm:h-[550px] md:h-[440px]"
                     }
                   >
                     {/* Para índices pares: imagen primero, luego contenido */}
                     {isEven && <ImageContainer />}
 
-                    {/* Contenedor de contenido */}
-                    <div className="flex flex-col justify-between gap-6 p-8 md:p-12 h-full">
-                      <div className="flex-1 flex flex-col justify-center max-w-3xl">
-                        <h3 className="text-2xl md:text-3xl font-bold text-white line-clamp-2">
+                    {/* Contenedor de contenido - altura fija para mantener consistencia */}
+                    <div className="flex flex-col justify-between gap-6 p-6 sm:p-8 md:p-10 lg:p-12 h-full">
+                      <div className="flex flex-col justify-center flex-1">
+                        <h3 className="text-2xl sm:text-3xl md:text-3xl font-bold text-white leading-tight">
                           {svc.title}
                         </h3>
-                        <p className="mt-3 text-white/90 line-clamp-4">
+                        <p className="mt-3 md:mt-4 text-base md:text-lg text-white/90 leading-relaxed">
                           {svc.description}
                         </p>
                       </div>
-                      <div className="flex-shrink-0">
+                      <div className="flex-shrink-0 mt-2">
                         <GlassButton label="Saber más" onClick={() => handleNavigate(svc.route)} />
                       </div>
                     </div>

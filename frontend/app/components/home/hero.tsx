@@ -18,7 +18,7 @@ interface HeroProps {
 
 export default function Hero({
   title = "Mangueras Hidráulicas y Soluciones Para la Industria",
-  subtitle = "Mangueras y conexiones hidráulicas de alta presión con ensamble profesional, pruebas y soporte técnico especializado. Experiencia y Liderazgo. Tu Mejor Conexión.",
+  subtitle = "Mangueras y conexiones hidráulicas de alta presión con ensamble profesional, pruebas y soporte técnico especializado.",
   slogan = "Experiencia y Liderazgo. Tu Mejor Conexión.",
   backgroundUrl = "/home-imgs/hero-bg.webp",
   primaryLabel = "Contactános",
