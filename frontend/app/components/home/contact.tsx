@@ -71,7 +71,7 @@ const ContactComponent = () => {
   };
 
   return (
-    <section className="relative w-full py-14 md:py-20">
+    <section id="contact" className="relative w-full py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -125,7 +125,7 @@ const ContactComponent = () => {
                     href="https://wa.me/521477716363?text=Hola%20Conduce%20Fluids"
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-lg transition-all"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-lg transition-all cursor-pointer"
                   >
                     <FaWhatsapp className="text-white text-xl" />
                   </a>
@@ -133,7 +133,7 @@ const ContactComponent = () => {
                     href="https://www.facebook.com/conducefluids/"
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-lg transition-all"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-lg transition-all cursor-pointer"
                   >
                     <FaFacebookF className="text-white text-xl" />
                   </a>
@@ -141,7 +141,7 @@ const ContactComponent = () => {
                     href="https://www.instagram.com/conducefluids/"
                     target="_blank"
                     rel="noreferrer"
-                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-lg transition-all"
+                    className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-lg transition-all cursor-pointer"
                   >
                     <FaInstagram className="text-white text-xl" />
                   </a>
@@ -215,7 +215,7 @@ const ContactComponent = () => {
 
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white font-semibold py-3 rounded-lg transition-all"
+                  className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white font-semibold py-3 rounded-lg transition-all cursor-pointer"
                 >
                   Enviar mensaje
                 </button>
@@ -231,7 +231,7 @@ const ContactComponent = () => {
                 <button
                   key={index}
                   onClick={() => setSelectedLocation(index)}
-                  className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer ${
                     selectedLocation === index
                       ? 'bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg'
                       : 'bg-white/10 backdrop-blur-sm border border-white/20 text-white/80 hover:bg-white/15 hover:text-white'

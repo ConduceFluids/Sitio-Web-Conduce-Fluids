@@ -12,7 +12,7 @@ import "./app.css";
 import Background from "./components/background";
 import useSmoothScroll from "./hooks/useSmoothScroll";
 import useScrollToTop from "./hooks/useScrollToTop";
-import FloatWAButton from "./layout/floatWAbutton";
+import { Navbar, FloatWAButton } from "./layout";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -38,6 +38,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <Background />
+        <Navbar />
         {children}
         <FloatWAButton 
           phoneNumber="524777716363"

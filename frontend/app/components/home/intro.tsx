@@ -5,6 +5,7 @@
 export default function Intro() {
   return (
     <section
+      id="intro"
       className="relative flex flex-col items-center justify-center w-full h-screen overflow-hidden px-6 md:px-8 lg:px-12"
     >
       <div className="w-full h-[75vh] max-w-5xl relative rounded-3xl overflow-hidden">

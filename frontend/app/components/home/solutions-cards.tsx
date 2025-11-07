@@ -107,7 +107,7 @@ const GlassButton: React.FC<{
     <Tag
       onClick={onClick}
       href={href}
-      className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold border border-white/30 bg-white/20 backdrop-blur hover:bg-white/30 text-gray-900 shadow-sm transition-all hover:shadow-md"
+      className="inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold border border-white/30 bg-white/20 backdrop-blur hover:bg-white/30 text-gray-900 shadow-sm transition-all hover:shadow-md cursor-pointer"
     >
       {label}
     </Tag>
@@ -120,7 +120,7 @@ export default function SolutionsCards() {
   const handleNavigate = (route: string) => navigate(route);
 
   return (
-    <section className="relative font-sans">
+    <section id="solutions" className="relative font-sans">
       <div className="px-[5%]">
         <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
           <div className="py-24 md:py-48 flex flex-col items-center">

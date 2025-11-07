@@ -14,7 +14,7 @@ export interface ButtonProps {
 }
 
 const base =
-  "inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium transition " +
+  "inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-medium transition cursor-pointer " +
   "focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900/60 " +
   "disabled:opacity-60 disabled:pointer-events-none";
 

@@ -45,7 +45,7 @@ const CARDS: Card[] = [
 
 export default function SolutionsCards() {
   return (
-    <section className="relative w-full py-14 md:py-20">
+    <section id="services" className="relative w-full py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         
@@ -57,7 +57,7 @@ export default function SolutionsCards() {
               key={index}
               className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-105"
             >
-              <a href={card.href} className="block h-full">
+              <a href={card.href} className="block h-full cursor-pointer">
                 {/* Glassmorphism Card */}
                 <div className="relative h-full backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] transition-all duration-500">
                   

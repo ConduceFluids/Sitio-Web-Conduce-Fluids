@@ -78,7 +78,7 @@ export default function Hero({
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative h-screen w-full overflow-hidden" aria-label="Hero">
+    <section id="hero" ref={sectionRef} className="relative h-screen w-full overflow-hidden" aria-label="Hero">
       {/* Imagen de fondo con parallax */}
       <div
         ref={backgroundRef}
