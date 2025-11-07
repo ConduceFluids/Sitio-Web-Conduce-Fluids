@@ -4,7 +4,7 @@ import Intro from "~/components/home/intro";
 import SolutionsCards from "~/components/home/solutions-cards";
 import  ServicesCards  from "~/components/home/services-cards";
 import FAQ from "~/components/home/FAQ";
-import Contact from "~/components/home/Contact";
+import Contact from "~/components/home/contact";
 
 export function meta({}: Route.MetaArgs) {
   return [
