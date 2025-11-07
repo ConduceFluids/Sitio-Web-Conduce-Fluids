@@ -20,7 +20,7 @@ export default function Footer() {
             <img
               src="/CONDUCE_LOGO.webp"
               alt="Conduce Fluids"
-              className="h-16 w-auto"
+              className="h-24 w-auto"
             />
             <p className="text-white/80 text-sm leading-relaxed">
               Más de 50 años sirviendo a la industria del Bajío con soluciones en mangueras hidráulicas y conducción de fluidos.

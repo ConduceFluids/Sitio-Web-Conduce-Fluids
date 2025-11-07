@@ -47,12 +47,12 @@ const ContactComponent = () => {
     {
       name: "Conduce Fluids",
       address: "Blvd. Vasco de Quiroga 210, Las Fuentes, 37270 León de los Aldama, Gto.",
-      mapUrl: "https://www.google.com/maps?q=Blvd.%20Vasco%20de%20Quiroga%20210%2C%20Las%20Fuentes%2C%2037270%20Le%C3%B3n%20de%20los%20Aldama%2C%20Gto.&output=embed"
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d119099.42228258541!2d-101.6581924!3d21.1182687!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbe5580feba39%3A0xe286daaf97d5ee2f!2sCONDUCE%20FLUIDS%20SA%20de%20CV!5e0!3m2!1ses-419!2smx!4v1762533749696!5m2!1ses-419!2smx"
     },
     {
       name: "Conduce Fluids Sucursal Delta",
       address: "Blvd. Delta 101F, Fracciones de Santa Julia, 37290 León de los Aldama, Gto.",
-      mapUrl: "https://www.google.com/maps?q=Blvd.%20Delta%20101F%2C%20Fracciones%20de%20Santa%20Julia%2C%2037290%20Le%C3%B3n%20de%20los%20Aldama%2C%20Gto.&output=embed"
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d119099.42228258541!2d-101.6581924!3d21.1182687!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbe094177f539%3A0x3508ff08f171964d!2sCONDUCE%20FLUIDS%20Sucursal%20Delta!5e0!3m2!1ses-419!2smx!4v1762533765455!5m2!1ses-419!2smx"
     }
   ];
 
@@ -261,7 +261,9 @@ const ContactComponent = () => {
                   src={locations[selectedLocation].mapUrl}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0 w-full h-full"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full border-0"
+                  style={{ border: 0 }}
                 />
               </div>
             </div>

@@ -5,6 +5,7 @@ import SolutionsCards from "~/components/home/solutions-cards";
 import  ServicesCards  from "~/components/home/services-cards";
 import FAQ from "~/components/home/FAQ";
 import Contact from "~/components/home/contact";
+import CTA from "~/components/productos-servicios/cta";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,6 +21,13 @@ export default function Home() {
       <Intro />
       <ServicesCards />
       <SolutionsCards />
+      <CTA 
+        title="¿Qué producto necesitas?"
+        description="Nuestro equipo te atiende directamente por WhatsApp para resolver dudas, brindarte soporte y ayudarte a elegir el producto adecuado."
+        buttonText="Cotizar ahora"
+        whatsappMessage="Hola, me interesa conocer más"
+        phone="524777716363"
+      />  
       <FAQ />
       <Contact />
     </>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 export type ButtonVariant = "solid" | "glass";
 
@@ -6,6 +7,7 @@ export interface ButtonProps {
   children: React.ReactNode;
   variant?: ButtonVariant;
   href?: string;
+  to?: string;
   className?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   target?: React.HTMLAttributeAnchorTarget;
@@ -32,6 +34,7 @@ export function Button({
   children,
   variant = "solid",
   href,
+  to,
   className,
   onClick,
   target,
@@ -39,6 +42,14 @@ export function Button({
   type = "button",
 }: ButtonProps) {
   const classNames = cx(base, variants[variant], className);
+
+  if (to) {
+    return (
+      <Link to={to} className={classNames} onClick={onClick}>
+        {children}
+      </Link>
+    );
+  }
 
   if (href) {
     return (
