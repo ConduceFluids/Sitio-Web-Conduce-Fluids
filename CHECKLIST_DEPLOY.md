@@ -89,8 +89,26 @@ Sigue estos pasos en orden para completar el deploy del blog.
    ```
    - Esperar a que complete
    - Anotar la URL que aparece
+   - **Copiar el `appId` que aparece al final** (ejemplo: `z4whnzydvhgfpq7r0v29uvnd`)
 
-7. [ ] Verificar acceso al Studio:
+7. [ ] Actualizar `sanity.cli.ts` con el appId:
+   - Abrir el archivo `studio/sanity.cli.ts`
+   - Agregar la sección `deployment` con el `appId` copiado:
+   ```typescript
+   export default defineCliConfig({
+     api: {
+       projectId: 'ccpxoq1k',
+       dataset: 'production'
+     },
+     deployment: {
+       appId: 'z4whnzydvhgfpq7r0v29uvnd', // Usar el appId que te dio Sanity
+     }
+   })
+   ```
+   - Guardar el archivo
+   - Esto evitará que te pregunte el appId en futuros deploys
+
+8. [ ] Verificar acceso al Studio:
    - Abrir: `https://conducefluids-blog.sanity.studio`
    - Debería aparecer la pantalla de login
 

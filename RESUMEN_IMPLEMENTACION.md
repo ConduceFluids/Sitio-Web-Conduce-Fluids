@@ -14,6 +14,7 @@ Se ha implementado exitosamente un sistema de blog completo para Conduce Fluids 
 
 **Archivos creados**:
 - `sanity.config.ts` - Configuración principal del Studio
+- `sanity.cli.ts` - Archivo legible para el CLI
 - `schemas/post.ts` - Schema del blog post con todos los campos
 - `schemas/index.ts` - Exportación de schemas
 - `package.json` - Dependencias y scripts

@@ -57,7 +57,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+    <div className="min-h-screen">
       {/* Hero con imagen destacada */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         {post.mainImage && (
