@@ -7,32 +7,32 @@ const components: PortableTextComponents = {
   block: {
     // Estilos para diferentes niveles de encabezados
     h1: ({ children }) => (
-      <h1 className="text-4xl font-bold text-gray-900 mt-8 mb-4">
+      <h1 className="text-4xl font-bold text-white mt-8 mb-4">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="text-3xl font-bold text-gray-900 mt-8 mb-4">
+      <h2 className="text-3xl font-bold text-white mt-8 mb-4">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="text-2xl font-bold text-gray-900 mt-6 mb-3">
+      <h3 className="text-2xl font-bold text-white mt-6 mb-3">
         {children}
       </h3>
     ),
     h4: ({ children }) => (
-      <h4 className="text-xl font-bold text-gray-900 mt-6 mb-3">
+      <h4 className="text-xl font-bold text-white mt-6 mb-3">
         {children}
       </h4>
     ),
     normal: ({ children }) => (
-      <p className="text-gray-700 leading-relaxed mb-4">
+      <p className="text-slate-200 leading-relaxed mb-4">
         {children}
       </p>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="border-l-4 border-blue-600 pl-6 py-2 my-6 italic text-gray-700 bg-blue-50 rounded-r-lg">
+      <blockquote className="border-l-4 border-blue-400 pl-6 py-2 my-6 italic text-slate-200 bg-blue-500/10 rounded-r-lg">
         {children}
       </blockquote>
     ),
@@ -40,12 +40,12 @@ const components: PortableTextComponents = {
   
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-inside space-y-2 mb-4 text-gray-700">
+      <ul className="list-disc list-inside space-y-2 mb-4 text-slate-200">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-inside space-y-2 mb-4 text-gray-700">
+      <ol className="list-decimal list-inside space-y-2 mb-4 text-slate-200">
         {children}
       </ol>
     ),
@@ -62,13 +62,13 @@ const components: PortableTextComponents = {
 
   marks: {
     strong: ({ children }) => (
-      <strong className="font-bold text-gray-900">{children}</strong>
+      <strong className="font-bold text-white">{children}</strong>
     ),
     em: ({ children }) => (
-      <em className="italic">{children}</em>
+      <em className="italic text-slate-200">{children}</em>
     ),
     code: ({ children }) => (
-      <code className="bg-gray-100 text-red-600 px-2 py-1 rounded text-sm font-mono">
+      <code className="bg-slate-700/50 text-blue-300 px-2 py-1 rounded text-sm font-mono">
         {children}
       </code>
     ),
@@ -79,7 +79,7 @@ const components: PortableTextComponents = {
           href={value?.href}
           rel={rel}
           target={value?.blank ? '_blank' : undefined}
-          className="text-blue-600 hover:text-blue-800 underline transition-colors"
+          className="text-blue-300 hover:text-blue-200 underline transition-colors"
         >
           {children}
         </a>
@@ -98,11 +98,11 @@ const components: PortableTextComponents = {
           <img
             src={imageUrl}
             alt={value.alt || 'Imagen del post'}
-            className="w-full rounded-lg shadow-lg"
+            className="w-full rounded-lg shadow-2xl"
             loading="lazy"
           />
           {value.caption && (
-            <figcaption className="text-center text-sm text-gray-600 mt-3 italic">
+            <figcaption className="text-center text-sm text-slate-300 mt-3 italic">
               {value.caption}
             </figcaption>
           )}

@@ -81,10 +81,10 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
             >
               <Button 
                 to="/blog" 
-                variant="glass"
-                className="mb-6 text-white border-white/40 hover:bg-white/30"
+                variant="solid"
+                className="mb-6 text-white"
               >
-                ← Volver al blog
+                ← Regresar
               </Button>
               
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
@@ -109,16 +109,32 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-white rounded-2xl shadow-xl p-6 md:p-12"
+          className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl shadow-2xl overflow-hidden"
         >
-          {/* Excerpt destacado */}
-          <p className="text-xl md:text-2xl text-gray-700 font-medium mb-8 pb-8 border-b border-gray-200">
-            {post.excerpt}
-          </p>
+          {/* Content wrapper with gradient background */}
+          <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm p-6 md:p-12">
+            {/* Excerpt destacado */}
+            <div className="mb-8 pb-8">
+              <p className="text-xl md:text-2xl text-white font-medium mb-8">
+                {post.excerpt}
+              </p>
+              <div 
+                className="h-[2px] w-full rounded-full"
+                style={{
+                  background: 'linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.3) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.3) 80%, transparent 100%)'
+                }}
+              />
+            </div>
 
-          {/* Contenido principal */}
-          <div className="prose prose-lg max-w-none">
-            {post.content && <PortableText value={post.content} />}
+            {/* Contenido principal */}
+            <div className="prose prose-lg max-w-none text-white">
+              {post.content && <PortableText value={post.content} />}
+            </div>
+          </div>
+
+          {/* Subtle glow effect */}
+          <div className="absolute inset-0 opacity-50 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/5 via-transparent to-purple-500/5" />
           </div>
         </motion.div>
       </article>
@@ -126,10 +142,10 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
       {/* CTA al final del post */}
       <div className="pb-12">
         <CTA 
-          title="¿Tienes dudas sobre nuestros productos?"
-          description="Nuestro equipo te atiende directamente por WhatsApp para resolver dudas, brindarte soporte y ayudarte a elegir el producto adecuado."
+          title="¿En que podemos ayudarte?"
+          description="Nuestro equipo te atiende directamente por WhatsApp para resolver dudas, brindarte soporte y ayudarte a elegir el producto o servicio adecuado."
           buttonText="Contactar ahora"
-          whatsappMessage={`Hola, leí el artículo "${post.title}" y me gustaría más información`}
+          whatsappMessage={`Hola, leí el artículo "${post.title}" y me gustaría obtener más información`}
           phone="524777716363"
         />
       </div>

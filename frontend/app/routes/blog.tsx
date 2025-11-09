@@ -28,13 +28,12 @@ export default function Blog({ loaderData }: Route.ComponentProps) {
   const { posts } = loaderData;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 px-4 overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-50 h-50 bg-blue-200/30 rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-4xl mx-auto text-center">
@@ -43,10 +42,10 @@ export default function Blog({ loaderData }: Route.ComponentProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Nuestro Blog
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl text-white max-w-2xl mx-auto">
               Conocimiento y novedades del mundo de las mangueras hidráulicas
             </p>
           </motion.div>
@@ -61,7 +60,7 @@ export default function Blog({ loaderData }: Route.ComponentProps) {
             animate={{ opacity: 1 }}
             className="text-center py-20"
           >
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-white">
               Próximamente publicaremos contenido interesante. ¡Mantente atento!
             </p>
           </motion.div>

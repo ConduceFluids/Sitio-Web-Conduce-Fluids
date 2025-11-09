@@ -30,55 +30,67 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         delay: index * 0.1,
         ease: "easeOut" 
       }}
-      whileHover={{ y: -8 }}
-      className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+      className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-105"
     >
-      <Link to={`/blog/${post.slug.current}`} className="block">
-        {/* Imagen */}
-        <div className="relative h-56 overflow-hidden">
-          <motion.img
-            src={imageUrl}
-            alt={post.mainImage?.alt || post.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </div>
-
-        {/* Contenido */}
-        <div className="p-6">
-          {/* Fecha y autor */}
-          <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
-            <time>{formattedDate}</time>
-            {post.author && (
-              <>
-                <span>•</span>
-                <span>{post.author}</span>
-              </>
-            )}
+      <Link to={`/blog/${post.slug.current}`} className="block h-full cursor-pointer">
+        {/* Glassmorphism Card */}
+        <div className="relative h-full backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] transition-all duration-500">
+          
+          {/* Image Container */}
+          <div className="relative h-56 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800">
+            <motion.img
+              src={imageUrl}
+              alt={post.mainImage?.alt || post.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
           </div>
 
-          {/* Título */}
-          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
-            {post.title}
-          </h3>
+          {/* Content */}
+          <div className="p-6 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm">
+            {/* Fecha y autor */}
+            <div className="flex items-center gap-3 text-sm text-slate-300 mb-3">
+              <time>{formattedDate}</time>
+              {post.author && (
+                <>
+                  <span>•</span>
+                  <span>{post.author}</span>
+                </>
+              )}
+            </div>
 
-          {/* Excerpt */}
-          <p className="text-gray-600 mb-4 line-clamp-3">
-            {post.excerpt}
-          </p>
+            {/* Título */}
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight group-hover:text-blue-300 transition-colors duration-300 line-clamp-2">
+              {post.title}
+            </h3>
 
-          {/* Link */}
-          <div className="flex items-center text-blue-600 font-medium group-hover:gap-2 transition-all duration-300">
-            <span>Leer más</span>
-            <motion.span
-              initial={{ x: 0 }}
-              whileHover={{ x: 5 }}
-              transition={{ duration: 0.2 }}
-            >
-              →
-            </motion.span>
+            {/* Excerpt */}
+            <p className="text-slate-300 text-sm leading-relaxed mb-4 line-clamp-3">
+              {post.excerpt}
+            </p>
+
+            {/* Link */}
+            <div className="flex items-center text-blue-300 font-medium group-hover:gap-2 transition-all duration-300">
+              <span>Leer más</span>
+              <motion.span
+                initial={{ x: 0 }}
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                →
+              </motion.span>
+            </div>
           </div>
+
+          {/* Hover glow effect */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10" />
+          </div>
+
+          {/* Border glow on hover */}
+          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ring-1 ring-inset ring-white/30" />
         </div>
       </Link>
     </motion.article>
