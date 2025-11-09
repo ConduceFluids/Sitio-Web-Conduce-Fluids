@@ -1,0 +1,22 @@
+{
+  "name": "conducefluids-studio",
+  "version": "1.0.0",
+  "description": "Sanity Studio para Conduce Fluids Blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity start",
+    "build": "sanity build",
+    "deploy": "sanity deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sanity/vision": "^4.14.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "sanity": "^4.14.2",
+    "styled-components": "^6.1.19"
+  }
+}
