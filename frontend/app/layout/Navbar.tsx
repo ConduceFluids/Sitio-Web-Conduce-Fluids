@@ -92,6 +92,7 @@ export default function Navbar() {
             <NavLink to="/about">Nosotros</NavLink>
             <NavLink to="/products-services">Productos y Servicios</NavLink>
             <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/contact">Contacto</NavLink>
           </div>
 
           {/* CTA Button */}
@@ -215,13 +216,26 @@ export default function Navbar() {
                   Blog
                 </MobileNavLink>
               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ delay: 0.3, duration: 0.2 }}
+              >
+                <MobileNavLink
+                  to="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contacto
+                </MobileNavLink>
+              </motion.div>
               <motion.button
                 onClick={handleCotizarClick}
                 className="w-full mt-3 bg-gray-900 text-white shadow-md hover:bg-gray-800 active:scale-[0.99] font-medium py-3 px-4 rounded-2xl transition-all"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                transition={{ delay: 0.3, duration: 0.2 }}
+                transition={{ delay: 0.35, duration: 0.2 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

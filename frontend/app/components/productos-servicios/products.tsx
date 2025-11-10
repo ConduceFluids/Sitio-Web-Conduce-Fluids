@@ -111,11 +111,11 @@ export default function Products() {
           className="
             mt-6 md:mt-8
             grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
-            gap-6 md:gap-8
+            gap-6
           "
         >
           {rest.map((item) => (
-            <li key={item.route}>
+            <li key={item.route} className="h-full">
               <ProductCard item={item} />
             </li>
           ))}
@@ -130,61 +130,47 @@ export default function Products() {
 function FeaturedCard({ item }: { item: ProductCategory }) {
   return (
     <article
-      className="
-        group relative rounded-2xl overflow-hidden
-      "
+      className="group relative overflow-hidden rounded-2xl transition-all duration-500 hover:scale-105"
     >
-      {/* Glow azul en hover */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 to-blue-600/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-      
-      <div
-        className="
-          relative rounded-2xl
-          bg-white/10 backdrop-blur-sm
-          border border-white/20
-          shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]
-          p-6 md:p-8
-          flex flex-col md:flex-row items-start gap-6
-          transition-all duration-300 ease-out
-          group-hover:bg-white/15
-          group-hover:border-white/30
-          group-hover:shadow-[0_12px_40px_0_rgba(0,0,0,0.3)]
-          group-hover:scale-[1.02]
-        "
-      >
-        <div
-          className="
-            relative shrink-0
-            w-full md:w-48 h-32 md:h-40
-            rounded-xl overflow-hidden
-            bg-[#1D3C5B]/20 ring-1 ring-[#1D3C5B]/30
-            group-hover:ring-[#1D3C5B]/50 transition-all duration-300
-          "
-        >
-          <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            loading="lazy"
-            onError={(e) => {
-              e.currentTarget.src = "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&auto=format&fit=crop&q=80";
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-        </div>
+      {/* Glassmorphism Card */}
+      <div className="relative h-full backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] transition-all duration-500">
+        <div className="flex flex-col md:flex-row">
+          {/* Image Container */}
+          <div className="relative md:w-1/2 h-72 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800">
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&auto=format&fit=crop&q=80";
+              }}
+            />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+          </div>
 
-        <div className="flex-1">
-          <h3 className="text-xl md:text-2xl font-semibold text-white/95">
-            {item.title}
-          </h3>
-          <p className="mt-2 text-sm md:text-base leading-relaxed text-white/70">
-            {item.description}
-          </p>
-
-          <div className="mt-5">
-            <WhatsAppButton message={item.whatsappMessage} label="Cotizar" />
+          {/* Content */}
+          <div className="flex-1 p-6 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 leading-tight group-hover:text-blue-300 transition-colors duration-300">
+              {item.title}
+            </h3>
+            <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-5">
+              {item.description}
+            </p>
+            <div>
+              <WhatsAppButton message={item.whatsappMessage} label="Cotizar" />
+            </div>
           </div>
         </div>
+
+        {/* Hover glow effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10" />
+        </div>
+
+        {/* Border glow on hover */}
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ring-1 ring-inset ring-white/30" />
       </div>
     </article>
   );
@@ -193,62 +179,46 @@ function FeaturedCard({ item }: { item: ProductCategory }) {
 function ProductCard({ item }: { item: ProductCategory }) {
   return (
     <article
-      className="
-        group relative rounded-2xl h-full overflow-hidden
-      "
+      className="group relative h-full overflow-hidden rounded-2xl transition-all duration-500 hover:scale-105"
     >
-      {/* Glow azul en hover */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/30 to-blue-600/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-      
-      <div
-        className="
-          relative rounded-2xl h-full
-          bg-white/10 backdrop-blur-sm
-          border border-white/20
-          shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]
-          p-6 md:p-7
-          flex flex-col
-          transition-all duration-300 ease-out
-          group-hover:bg-white/15
-          group-hover:border-white/30
-          group-hover:shadow-[0_12px_40px_0_rgba(0,0,0,0.3)]
-          group-hover:scale-[1.02]
-        "
-      >
-        <div
-          className="
-            relative w-full h-40 rounded-xl overflow-hidden
-            bg-[#1D3C5B]/20 ring-1 ring-[#1D3C5B]/30
-            group-hover:ring-[#1D3C5B]/50 transition-all duration-300
-            mb-4
-          "
-        >
+      {/* Glassmorphism Card */}
+      <div className="relative h-full flex flex-col backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl overflow-hidden shadow-2xl hover:shadow-[0_20px_60px_rgba(255,255,255,0.15)] transition-all duration-500">
+        
+        {/* Image Container */}
+        <div className="relative h-72 shrink-0 overflow-hidden bg-gradient-to-br from-slate-700 to-slate-800">
           <img
             src={item.image}
             alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
             onError={(e) => {
               e.currentTarget.src = "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&auto=format&fit=crop&q=80";
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
         </div>
 
-        <h3 className="text-lg md:text-xl font-semibold text-white/95">
-          {item.title}
-        </h3>
-
-        <p className="mt-3 text-sm md:text-base leading-relaxed text-white/70">
-          {item.description}
-        </p>
-
-        <div className="mt-5 pt-2">
-          <WhatsAppButton message={item.whatsappMessage} label="Cotizar" />
+        {/* Content */}
+        <div className="flex-1 flex flex-col p-6 bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm">
+          <h3 className="text-xl font-bold text-white mb-3 leading-tight group-hover:text-blue-300 transition-colors duration-300">
+            {item.title}
+          </h3>
+          <p className="text-slate-300 text-sm leading-relaxed mb-5 flex-1">
+            {item.description}
+          </p>
+          <div className="mt-auto">
+            <WhatsAppButton message={item.whatsappMessage} label="Cotizar" />
+          </div>
         </div>
 
-        {/* Acento inferior */}
-        <div className="mt-6 h-[2px] w-full bg-gradient-to-r from-[#1D3C5B] via-[#8896A5] to-transparent opacity-60" />
+        {/* Hover glow effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-purple-500/10" />
+        </div>
+
+        {/* Border glow on hover */}
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ring-1 ring-inset ring-white/30" />
       </div>
     </article>
   );
@@ -263,7 +233,7 @@ function WhatsAppButton({ message, label }: { message: string; label: string }) 
 
   return (
     <Button
-      variant="glass"
+      variant="solid"
       onClick={handleClick}
       className="text-sm px-4 py-2 text-white"
     >

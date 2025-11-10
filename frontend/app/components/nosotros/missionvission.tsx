@@ -162,7 +162,7 @@ export default function MissionVision() {
               </div>
 
               {/* Barra/acento inferior */}
-              <div className="mt-6 h-[2px] w-full bg-gradient-to-r from-[#8896A5] via-[#1D3C5B] to-transparent opacity-60" />
+              <div className="mt-6 h-[2px] w-full bg-gradient-to-r from-[#1D3C5B] via-[#8896A5] to-transparent opacity-60" />
             </div>
           </article>
         </div>

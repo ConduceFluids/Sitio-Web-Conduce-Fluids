@@ -164,7 +164,7 @@ function FeaturedServiceCard({ item }: { item: ServiceItem }) {
           )}
 
           <div className="mt-5">
-            <Button variant="glass" to={item.to} className="text-sm px-4 py-2 text-white">
+            <Button variant="solid" to={item.to} className="text-sm px-4 py-2 text-white">
               {item.ctaLabel}
               <svg viewBox="0 0 24 24" className="w-4 h-4 ml-2" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <path d="M7 12h10M13 8l4 4-4 4" />
@@ -206,7 +206,7 @@ function ServiceCard({ item }: { item: ServiceItem }) {
         )}
 
         <div className="mt-5 pt-1">
-          <Button variant="glass" to={item.to} className="text-sm px-4 py-2 text-white">
+          <Button variant="solid" to={item.to} className="text-sm px-4 py-2 text-white">
             {item.ctaLabel}
             <svg viewBox="0 0 24 24" className="w-4 h-4 ml-2" fill="none" stroke="currentColor" strokeWidth="1.6">
               <path d="M7 12h10M13 8l4 4-4 4" />

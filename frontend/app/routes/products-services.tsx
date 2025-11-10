@@ -3,7 +3,7 @@
 // Tech: React Router + TailwindCSS
 
 import PSHero from "~/components/productos-servicios/ps-hero";
-import Contact from "~/components/home/contact";
+import Contact from "~/components/home/contact-form";
 import Products from "~/components/productos-servicios/products";
 import Services from "~/components/productos-servicios/services";
 import Sectors from "~/components/productos-servicios/sectors";

@@ -18,28 +18,28 @@ const CARDS: Card[] = [
     desc: "Durabilidad y rendimiento óptimo en sistemas de alta presión para entornos exigentes.",
     category: "Productos",
     image: "/home-imgs/services/service1.webp",
-    href: "/productos/mangueras-hidraulicas",
+    href: "/products-services",
   },
   {
     title: "Conexiones y accesorios de precisión",
     desc: "Ajuste perfecto y máxima seguridad en cada aplicación con estándares industriales.",
     category: "Accesorios",
     image: "/home-imgs/services/service2.webp",
-    href: "/productos/conexiones-accesorios",
+    href: "/products-services",
   },
   {
     title: "Servicio de ensamble y pruebas",
     desc: "Ensamble experto y pruebas rigurosas para garantizar un funcionamiento impecable.",
     category: "Servicios",
     image: "/home-imgs/services/service3.webp",
-    href: "/servicios/ensamble-pruebas",
+    href: "/products-services",
   },
   {
     title: "Integración de proyectos Industria 4.0",
     desc: "Soluciones avanzadas para conectar y optimizar sistemas hidráulicos con analítica.",
     category: "Tecnología",
     image: "/home-imgs/services/service4.webp",
-    href: "/servicios/industria-4-0",
+    href: "/products-services",
   },
 ];
 

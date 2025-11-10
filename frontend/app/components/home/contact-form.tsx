@@ -12,12 +12,24 @@ interface FormData {
   interests: string[];
 }
 
+interface SubmitState {
+  loading: boolean;
+  success: boolean;
+  error: string | null;
+}
+
 const ContactComponent = () => {
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     message: '',
     interests: []
+  });
+
+  const [submitState, setSubmitState] = useState<SubmitState>({
+    loading: false,
+    success: false,
+    error: null
   });
 
   const [selectedLocation, setSelectedLocation] = useState<number>(0);
@@ -27,6 +39,10 @@ const ContactComponent = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Clear any previous errors when user starts typing
+    if (submitState.error) {
+      setSubmitState({ ...submitState, error: null });
+    }
   };
 
   const handleCheckboxChange = (value: string) => {
@@ -38,9 +54,95 @@ const ContactComponent = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('¡Mensaje enviado! Pronto nos pondremos en contacto.');
+  const validateForm = (): string | null => {
+    if (!formData.name.trim()) {
+      return 'Por favor ingresa tu nombre.';
+    }
+    if (!formData.email.trim()) {
+      return 'Por favor ingresa tu correo electrónico.';
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      return 'Por favor ingresa un correo electrónico válido.';
+    }
+    if (!formData.message.trim()) {
+      return 'Por favor escribe un mensaje.';
+    }
+    if (formData.message.trim().length < 10) {
+      return 'El mensaje debe tener al menos 10 caracteres.';
+    }
+    return null;
+  };
+
+  const handleSubmit = async () => {
+    // Validate form
+    const validationError = validateForm();
+    if (validationError) {
+      setSubmitState({
+        loading: false,
+        success: false,
+        error: validationError
+      });
+      return;
+    }
+
+    // Set loading state
+    setSubmitState({
+      loading: true,
+      success: false,
+      error: null
+    });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // Success state
+        setSubmitState({
+          loading: false,
+          success: true,
+          error: null
+        });
+
+        // Clear form
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+          interests: []
+        });
+
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitState({
+            loading: false,
+            success: false,
+            error: null
+          });
+        }, 5000);
+      } else {
+        // Error from API
+        setSubmitState({
+          loading: false,
+          success: false,
+          error: data.message || 'Error al enviar el mensaje. Por favor intenta de nuevo.'
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitState({
+        loading: false,
+        success: false,
+        error: 'Error de conexión. Por favor verifica tu internet e intenta de nuevo.'
+      });
+    }
   };
 
   const locations = [
@@ -213,11 +315,44 @@ const ContactComponent = () => {
                   </div>
                 </div>
 
+                {/* Success Message */}
+                {submitState.success && (
+                  <div className="mb-4 p-4 bg-green-500/20 border border-green-500/30 rounded-lg">
+                    <p className="text-green-100 text-sm font-medium text-center">
+                      ✓ ¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.
+                    </p>
+                  </div>
+                )}
+
+                {/* Error Message */}
+                {submitState.error && (
+                  <div className="mb-4 p-4 bg-red-500/20 border border-red-500/30 rounded-lg">
+                    <p className="text-red-100 text-sm font-medium text-center">
+                      ✕ {submitState.error}
+                    </p>
+                  </div>
+                )}
+
                 <button
                   onClick={handleSubmit}
-                  className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white font-semibold py-3 rounded-lg transition-all cursor-pointer"
+                  disabled={submitState.loading}
+                  className={`w-full font-semibold py-3 rounded-lg transition-all ${
+                    submitState.loading
+                      ? 'bg-white/10 border border-white/20 text-white/50 cursor-not-allowed'
+                      : 'bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/30 text-white cursor-pointer'
+                  }`}
                 >
-                  Enviar mensaje
+                  {submitState.loading ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Enviando...
+                    </span>
+                  ) : (
+                    'Enviar mensaje'
+                  )}
                 </button>
               </div>
             </div>

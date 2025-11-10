@@ -6,7 +6,7 @@ import TimelineDemo from "~/components/nosotros/timeline";
 import AboutHero from "../components/nosotros/about-hero";
 import MissionVision from "~/components/nosotros/missionvission";
 import CompanyValues from "~/components/nosotros/company-values";
-import Contact from "~/components/home/contact";
+import Contact from "~/components/home/contact-form";
 
 export function meta() {
   return [
