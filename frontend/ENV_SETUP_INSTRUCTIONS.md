@@ -20,7 +20,7 @@ RESEND_API_KEY=your_resend_api_key_here
 
 ### Step 2: Create Local Environment File
 
-1. In the `frontend` directory, create a file named `.env.local`
+1. In the project root directory (next to `package.json`), create a file named `.env.local`
 2. Add the following content:
 
 ```env
@@ -33,6 +33,7 @@ RESEND_API_KEY=re_your_actual_api_key_here
 
 1. Restart your development server:
    ```bash
+   cd frontend
    npm run dev
    ```
 

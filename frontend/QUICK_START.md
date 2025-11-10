@@ -28,6 +28,16 @@
 3. Click "Enviar mensaje"
 4. Check `conducefluids@gmail.com` for the email
 
+---
+
+## 🐛 Troubleshooting
+
+If you get an error about "api/**/*.js" pattern not matching:
+
+**✅ FIXED**: The API function has been moved to the correct location (`api/contact.js` at project root).
+
+The error should now be resolved. If you still see it, redeploy to Vercel to apply the changes.
+
 ## ✅ That's It!
 
 Your contact form is now fully functional and sending professional emails to `conducefluids@gmail.com`.

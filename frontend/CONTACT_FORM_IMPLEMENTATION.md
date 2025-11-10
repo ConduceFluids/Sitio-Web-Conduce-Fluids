@@ -6,7 +6,7 @@ The contact form has been successfully integrated with Resend email service. All
 
 ## 📋 What Was Implemented
 
-### 1. **Serverless API Function** (`frontend/api/contact.js`)
+### 1. **Serverless API Function** (`api/contact.js`)
    - POST endpoint at `/api/contact`
    - Resend email integration
    - Professional HTML email template with:
