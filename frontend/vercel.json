@@ -1,11 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "build/client",
-  "framework": "react-router",
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs"
-    }
-  }
+  "framework": "react-router"
 }
 
