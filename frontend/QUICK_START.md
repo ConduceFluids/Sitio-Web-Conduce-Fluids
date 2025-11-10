@@ -32,11 +32,11 @@
 
 ## 🐛 Troubleshooting
 
-If you get an error about "api/**/*.js" pattern not matching:
+If you get a 404 error on `/api/contact`:
 
-**✅ FIXED**: The API function is now in `frontend/api/contact.js` where Vercel can find it with the dependencies.
+**✅ FIXED**: The API is now implemented as a React Router route (`frontend/app/routes/api.contact.ts`) which works natively with Vercel.
 
-The error should now be resolved. If you still see it, redeploy to Vercel to apply the changes.
+The error should now be resolved. Redeploy to Vercel to apply the changes.
 
 ## ✅ That's It!
 

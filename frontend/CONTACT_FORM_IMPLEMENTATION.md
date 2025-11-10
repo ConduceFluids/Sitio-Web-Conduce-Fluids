@@ -6,9 +6,10 @@ The contact form has been successfully integrated with Resend email service. All
 
 ## 📋 What Was Implemented
 
-### 1. **Serverless API Function** (`frontend/api/contact.js`)
+### 1. **React Router API Route** (`frontend/app/routes/api.contact.ts`)
    - POST endpoint at `/api/contact`
    - Resend email integration
+   - Uses React Router action for serverless execution
    - Professional HTML email template with:
      - Conduce Fluids logo from `conducefluids.com/CONDUCE_LOGO.webp`
      - Gradient header with corporate branding

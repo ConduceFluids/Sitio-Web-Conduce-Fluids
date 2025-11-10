@@ -2,37 +2,38 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export default async function handler(req, res) {
+export async function action({ request }: { request: Request }) {
   // Only allow POST requests
-  if (req.method !== 'POST') {
-    return res.status(405).json({ 
-      success: false,
-      message: 'Method not allowed' 
-    });
+  if (request.method !== 'POST') {
+    return Response.json(
+      { success: false, message: 'Method not allowed' },
+      { status: 405 }
+    );
   }
 
   try {
-    const { name, email, message, interests } = req.body;
+    const body = await request.json();
+    const { name, email, message, interests } = body;
 
     // Validate required fields
     if (!name || !email || !message) {
-      return res.status(400).json({ 
-        success: false,
-        message: 'Por favor completa todos los campos requeridos.' 
-      });
+      return Response.json(
+        { success: false, message: 'Por favor completa todos los campos requeridos.' },
+        { status: 400 }
+      );
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ 
-        success: false,
-        message: 'Por favor ingresa un email válido.' 
-      });
+      return Response.json(
+        { success: false, message: 'Por favor ingresa un email válido.' },
+        { status: 400 }
+      );
     }
 
     // Format interests for display
-    const interestsLabels = {
+    const interestsLabels: Record<string, string> = {
       'mangueras': 'Mangueras hidráulicas',
       'conexiones': 'Conexiones y adaptadores',
       'valvulas': 'Válvulas y acoples',
@@ -42,7 +43,7 @@ export default async function handler(req, res) {
     };
 
     const formattedInterests = interests && interests.length > 0
-      ? interests.map(int => interestsLabels[int] || int).join(', ')
+      ? interests.map((int: string) => interestsLabels[int] || int).join(', ')
       : 'No especificado';
 
     // Get current date/time in Mexico timezone
@@ -195,24 +196,24 @@ export default async function handler(req, res) {
 
     // Send email via Resend
     const { data, error } = await resend.emails.send({
-      from: 'Conduce Fluids <onboarding@resend.dev>', // Use your verified domain when available
+      from: 'Conduce Fluids <onboarding@resend.dev>',
       to: 'conducefluids@gmail.com',
       subject: `Nuevo Contacto: ${name} - ${formattedInterests.split(',')[0]}`,
       html: emailTemplate,
-      replyTo: email, // Allow direct reply to the customer
+      replyTo: email,
     });
 
     if (error) {
       console.error('Resend API Error:', error);
-      return res.status(500).json({ 
-        success: false,
-        message: 'Error al enviar el mensaje. Por favor intenta de nuevo.' 
-      });
+      return Response.json(
+        { success: false, message: 'Error al enviar el mensaje. Por favor intenta de nuevo.' },
+        { status: 500 }
+      );
     }
 
     console.log('Email sent successfully:', data);
 
-    return res.status(200).json({ 
+    return Response.json({
       success: true,
       message: '¡Mensaje enviado exitosamente!',
       emailId: data?.id
@@ -220,10 +221,10 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Unexpected error in contact handler:', error);
-    return res.status(500).json({ 
-      success: false,
-      message: 'Error inesperado. Por favor intenta de nuevo más tarde.' 
-    });
+    return Response.json(
+      { success: false, message: 'Error inesperado. Por favor intenta de nuevo más tarde.' },
+      { status: 500 }
+    );
   }
 }
 
