@@ -34,7 +34,7 @@
 
 If you get an error about "api/**/*.js" pattern not matching:
 
-**✅ FIXED**: The API function has been moved to the correct location (`api/contact.js` at project root).
+**✅ FIXED**: The API function is now in `frontend/api/contact.js` where Vercel can find it with the dependencies.
 
 The error should now be resolved. If you still see it, redeploy to Vercel to apply the changes.
 
