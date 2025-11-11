@@ -224,7 +224,7 @@ const ContactComponent = () => {
                 <p className="text-white/70 text-sm mb-3">Síguenos en redes sociales</p>
                 <div className="flex items-center gap-3">
                   <a
-                    href="https://wa.me/521477716363?text=Hola%20Conduce%20Fluids"
+                    href="https://wa.me/524775770379?text=Hola%20Conduce%20Fluids"
                     target="_blank"
                     rel="noreferrer"
                     className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-3 rounded-lg transition-all cursor-pointer"

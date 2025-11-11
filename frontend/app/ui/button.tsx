@@ -44,6 +44,15 @@ export function Button({
   const classNames = cx(base, variants[variant], className);
 
   if (to) {
+    // Si es una URL externa (comienza con http), usar enlace normal
+    if (to.startsWith('http')) {
+      return (
+        <a href={to} className={classNames} onClick={onClick} target="_blank" rel="noopener noreferrer">
+          {children}
+        </a>
+      );
+    }
+    // Si no, usar React Router Link para navegación interna
     return (
       <Link to={to} className={classNames} onClick={onClick}>
         {children}

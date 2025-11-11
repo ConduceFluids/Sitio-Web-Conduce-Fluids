@@ -26,7 +26,7 @@ export default function Home() {
         description="Nuestro equipo te atiende directamente por WhatsApp para resolver dudas, brindarte soporte y ayudarte a elegir el producto adecuado."
         buttonText="Cotizar ahora"
         whatsappMessage="Hola, me interesa conocer más"
-        phone="524777716363"
+        phone="524775770379"
       />  
       <FAQ />
       <Contact />

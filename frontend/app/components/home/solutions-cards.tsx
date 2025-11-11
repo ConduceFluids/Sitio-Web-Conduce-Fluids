@@ -11,42 +11,42 @@ const services = [
     title: "Mangueras hidráulicas",
     description:
       "Mangueras diseñadas para soportar condiciones exigentes, garantizando durabilidad y rendimiento óptimo en sistemas de alta presión.",
-    route: "/productos/mangueras-hidraulicas",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions1.webp",
   },
   {
     title: "Conectores, coples y adaptadores",
     description:
       "Amplia gama de conectores y adaptadores fabricados con alta precisión, asegurando ajuste perfecto y máxima seguridad en sus aplicaciones.",
-    route: "/productos/conectores-coples-adaptadores",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions2.webp",
   },
   {
     title: "Pistones hidráulicos",
     description:
       "Pistones de alta calidad para aplicaciones industriales exigentes, ofreciendo precisión, resistencia y confiabilidad en cada operación.",
-    route: "/productos/pistones-hidraulicos",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions3.webp",
   },
   {
     title: "Cilindros neumáticos",
     description:
       "Cilindros de alto rendimiento para aplicaciones industriales, garantizando eficiencia energética, durabilidad y precisión en automatización.",
-    route: "/productos/cilindros-neumaticos",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions4.webp",
   },
   {
     title: "Automatización neumática",
     description:
       "Soluciones completas de automatización neumática para optimizar procesos industriales, mejorando eficiencia operativa y reduciendo tiempos.",
-    route: "/servicios/automatizacion-neumatica",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions5.webp",
   },
   {
     title: "Válvulas y electroválvulas",
     description:
       "Válvulas y electroválvulas de precisión para control eficiente de fluidos en sistemas hidráulicos y neumáticos con máxima confiabilidad.",
-    route: "/productos/valvulas-electrovalvulas",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions6.webp",
   },
 ];

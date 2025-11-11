@@ -28,7 +28,7 @@ const SERVICES: ServiceItem[] = [
       "Nuestros ingenieros evalúan tu operación para ofrecer la mejor solución hidráulica, reduciendo paros y mejorando seguridad.",
     bullets: ["Diagnóstico según industria", "Selección de productos", "Recomendaciones de eficiencia"],
     ctaLabel: "Solicitar servicio",
-    to: "/servicios/asesoria-tecnica",
+    to: "https://wa.me/4775770379?text=Hola,%20me%20interesa%20solicitar%20asesoría%20técnica%20personalizada",
     icon: FaUserTie,
   },
   {
@@ -38,7 +38,7 @@ const SERVICES: ServiceItem[] = [
       "Fabricamos mangueras de alta presión cumpliendo normas SAE y DIN, para máxima durabilidad.",
     bullets: ["Corte a medida", "Ensambles personalizados"],
     ctaLabel: "Solicitar servicio",
-    to: "/servicios/fabricacion-a-medida",
+    to: "https://wa.me/4775770379?text=Hola,%20necesito%20información%20sobre%20fabricación%20de%20mangueras%20a%20medida",
     icon: FaTools,
   },
   {
@@ -48,7 +48,7 @@ const SERVICES: ServiceItem[] = [
       "Prolonga la vida útil de tus líneas hidráulicas con mantenimiento preventivo y correctivo.",
     bullets: ["Inspección y reparación", "Sustitución de piezas", "Programas periódicos"],
     ctaLabel: "Solicitar servicio",
-    to: "/servicios/mantenimiento-reparacion",
+    to: "https://wa.me/4775770379?text=Hola,%20requiero%20servicio%20de%20mantenimiento%20y%20reparación%20de%20líneas%20hidráulicas",
     icon: FaWrench,
   },
   {
@@ -58,7 +58,7 @@ const SERVICES: ServiceItem[] = [
       "Montaje profesional de sistemas hidráulicos y neumáticos, con supervisión técnica.",
     bullets: ["Montaje completo", "Supervisión de proyectos"],
     ctaLabel: "Solicitar servicio",
-    to: "/servicios/instalacion-en-sitio",
+    to: "https://wa.me/4775770379?text=Hola,%20me%20gustaría%20solicitar%20instalación%20en%20sitio%20de%20sistemas%20hidráulicos",
     icon: FaCog,
   },
   {
@@ -68,7 +68,7 @@ const SERVICES: ServiceItem[] = [
       "Logística especializada para envíos urgentes en toda la república.",
     bullets: ["Entrega a domicilio", "Envíos express"],
     ctaLabel: "Solicitar servicio",
-    to: "/servicios/logistica",
+    to: "https://wa.me/4775770379?text=Hola,%20necesito%20información%20sobre%20servicios%20de%20logística%20y%20entrega",
     icon: FaTruck,
   },
   {
@@ -78,7 +78,7 @@ const SERVICES: ServiceItem[] = [
       "Stock de accesorios certificados: abrazaderas, adaptadores, filtros y más.",
     bullets: ["Abrazaderas y adaptadores", "Kits de montaje"],
     ctaLabel: "Solicitar servicio",
-    to: "/servicios/accesorios",
+    to: "https://wa.me/4775770379?text=Hola,%20me%20interesa%20comprar%20accesorios%20y%20complementos%20hidráulicos",
     icon: FaCogs,
   },
   {
@@ -88,7 +88,7 @@ const SERVICES: ServiceItem[] = [
       "Soporte multicanal y garantía extendida para tu tranquilidad.",
     bullets: ["Atención a garantías", "Seguimiento de pedidos", "Chat técnico"],
     ctaLabel: "Contactar soporte",
-    to: "/soporte",
+    to: "https://wa.me/4775770379?text=Hola,%20necesito%20contactar%20al%20soporte%20postventa",
     icon: FaHeadset,
   },
 ];

@@ -146,7 +146,7 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
           description="Nuestro equipo te atiende directamente por WhatsApp para resolver dudas, brindarte soporte y ayudarte a elegir el producto o servicio adecuado."
           buttonText="Contactar ahora"
           whatsappMessage={`Hola, leí el artículo "${post.title}" y me gustaría obtener más información`}
-          phone="524777716363"
+          phone="524775770379"
         />
       </div>
     </div>

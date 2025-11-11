@@ -28,7 +28,7 @@ type Props = {
 };
 
 export default function CTA({ 
-  phone = "52XXXXXXXXXX",
+  phone = "524775770379",
   title = "¿Necesitas asesoría técnica o cotización inmediata?",
   description = "Nuestro equipo te atiende directamente por WhatsApp para resolver dudas, brindarte soporte y ayudarte a elegir el producto adecuado.",
   buttonText = "Hablar por WhatsApp",

@@ -18,14 +18,14 @@ type ProductCategory = {
   whatsappMessage: string;
 };
 
-const WHATSAPP_NUMBER = "524777716363";
+const WHATSAPP_NUMBER = "524775770379";
 
 const categories: ProductCategory[] = [
   {
     title: "Mangueras hidráulicas",
     description:
       "Alta, media y baja presión (500–6000 psi): diseñadas para ofrecer máxima flexibilidad y resistencia en cualquier condición de trabajo.",
-    route: "/productos/mangueras-hidraulicas",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions1.webp",
     whatsappMessage: "Hola! Me interesa conocer más sobre sus mangueras hidráulicas. ¿Podrían enviarme información sobre disponibilidad y precios?",
   },
@@ -33,7 +33,7 @@ const categories: ProductCategory[] = [
     title: "Conectores, coples y adaptadores",
     description:
       "Amplia selección de coples rápidos y conexiones roscadas de alta resistencia, junto con adaptadores para todos los diámetros.",
-    route: "/productos/conectores-y-adaptadores",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions2.webp",
     whatsappMessage: "Hola! Necesito información sobre conectores, coples y adaptadores. ¿Tienen disponibilidad y podrían cotizarme?",
   },
@@ -41,7 +41,7 @@ const categories: ProductCategory[] = [
     title: "Pistones hidráulicos",
     description:
       "Fabricación propia en acero endurecido: diseñados para soportar altas cargas y ciclos de trabajo intensivos con máxima fiabilidad.",
-    route: "/productos/pistones-hidraulicos",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions3.webp",
     whatsappMessage: "Hola! Me interesan sus pistones hidráulicos de fabricación propia. ¿Podrían darme más detalles técnicos y cotización?",
   },
@@ -49,7 +49,7 @@ const categories: ProductCategory[] = [
     title: "Cilindros neumáticos",
     description:
       "Fabricación propia: construidos en aluminio y acero inoxidable para garantizar rendimiento y larga vida en aplicaciones industriales.",
-    route: "/productos/cilindros-neumaticos",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions4.webp",
     whatsappMessage: "Hola! Quisiera información sobre sus cilindros neumáticos de fabricación propia. ¿Tienen catálogo disponible?",
   },
@@ -57,7 +57,7 @@ const categories: ProductCategory[] = [
     title: "Automatización y neumática",
     description:
       "Válvulas de control, sensores y reguladores para optimizar procesos y mejorar la eficiencia de tus instalaciones.",
-    route: "/productos/automatizacion-y-neumatica",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions5.webp",
     whatsappMessage: "Hola! Necesito asesoría sobre automatización y neumática. ¿Podrían ayudarme con válvulas de control y sensores?",
   },
@@ -65,7 +65,7 @@ const categories: ProductCategory[] = [
     title: "Válvulas y electroválvulas",
     description:
       "Válvulas de bola, aguja y alivio, y electroválvulas con respuesta rápida para sistemas hidráulicos y neumáticos.",
-    route: "/productos/valvulas-y-electrovalvulas",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions6.webp",
     whatsappMessage: "Hola! Busco válvulas y electroválvulas para mi sistema. ¿Podrían recomendarme las mejores opciones y cotizarme?",
   },
@@ -73,7 +73,7 @@ const categories: ProductCategory[] = [
     title: "Productos Especiales",
     description:
       "Disponible en grado alimenticio, para químicos y alta temperatura, diseñadas para aplicaciones especializadas y entornos extremos.",
-    route: "/productos/especiales",
+    route: "/products-services",
     image: "/home-imgs/solutions/solutions1.webp",
     whatsappMessage: "Hola! Necesito productos especiales (grado alimenticio, químicos o alta temperatura). ¿Podrían asesorarme?",
   },
