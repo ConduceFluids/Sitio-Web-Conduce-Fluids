@@ -22,9 +22,9 @@ export default function Hero({
   slogan = "Experiencia y Liderazgo. Tu Mejor Conexión.",
   backgroundUrl = "/home-imgs/hero-bg.webp",
   primaryLabel = "Contactános",
-  primaryHref = "/contacto",
+  primaryHref = "/contact",
   secondaryLabel = "Ver más",
-  secondaryHref = "/tienda",
+  secondaryHref = "/products-services",
   align = "left",
 }: HeroProps) {
   const alignClasses =

@@ -46,24 +46,7 @@ export default function Navbar() {
 
   const handleCotizarClick = () => {
     setIsMobileMenuOpen(false);
-    if (location.pathname === "/") {
-      // Si estamos en home, hacer scroll a contacto
-      setTimeout(() => {
-        const element = document.getElementById("contact");
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      // Si estamos en otra página, navegar a home y luego scroll
-      navigate("/");
-      setTimeout(() => {
-        const element = document.getElementById("contact");
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 300);
-    }
+    navigate("/contact");
   };
 
   return (
