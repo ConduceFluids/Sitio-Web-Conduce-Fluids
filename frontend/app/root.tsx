@@ -29,7 +29,7 @@ export const links: Route.LinksFunction = () => [
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,7 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <Footer />
         <FloatWAButton 
-          phoneNumber="524777716363"
+          phoneNumber="524775770379"
           message="Hola! Me gustaría obtener más información sobre sus servicios de mangueras hidráulicas."
         />
         <ScrollRestoration />

@@ -133,7 +133,7 @@ export async function action({ request }: { request: Request }) {
                           <p style="margin: 0 0 12px 0; color: #64748b; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
                             Mensaje
                           </p>
-                          <p style="margin: 0; color: #1e293b; font-size: 16px; line-height: 1.8; white-space: pre-wrap;">
+                          <p style="margin: 0; color: #1e293b; font-size: 16px; line-height: 1.8;">
                             ${message}
                           </p>
                         </td>
